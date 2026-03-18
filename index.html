@@ -7,36 +7,103 @@
 </head>
 <body>
     <div class="icons-grid">
-        <div class="icons">1</div>
-        <div class="icons">2</div>
-        <div class="icons">3</div>
-        <div class="icons">4</div>
-        <div class="icons">5</div>
+        <div class="icons" onclick="openDialog(1)">
+            <img src="">
+            <p>app</p>
+        </div>
+        <div class="icons" onclick="openDialog(2)">2</div>
+        <div class="icons" onclick="openDialog(3)">3</div>
+        <div class="icons" onclick="openDialog(4)">4</div>
+        <div class="icons" onclick="openDialog(5)">5</div>
 
-        <div class="icons">6</div>
-        <div class="icons">7</div>
-        <div class="icons">8</div>
-        <div class="icons">9</div>
-        <div class="icons">10</div>
+        <div class="icons" onclick="openDialog(6)">6</div>
+        <div class="icons" onclick="openDialog(7)">7</div>
+        <div class="icons" onclick="openDialog(8)">8</div>
+        <div class="icons" onclick="openDialog(9)">9</div>
+        <div class="icons" onclick="openDialog(10)">10</div>
 
-        <div class="icons">11</div>
-        <div class="icons">12</div>
-        <div class="icons">13</div>
-        <div class="icons">14</div>
-        <div class="icons">15</div>
+        <div class="icons" onclick="openDialog(11)">11</div>
+        <div class="icons" onclick="openDialog(12)">12</div>
+        <div class="icons" onclick="openDialog(13)">13</div>
+        <div class="icons" onclick="openDialog(14)">14</div>
+        <div class="icons" onclick="openDialog(15)">15</div>
 
-        <div class="icons">16</div>
-        <div class="icons">17</div>
-        <div class="icons">18</div>
-        <div class="icons">19</div>
-        <div class="icons">20</div>
+        <div class="icons" onclick="openDialog(16)">16</div>
+        <div class="icons" onclick="openDialog(17)">17</div>
+        <div class="icons" onclick="openDialog(18)">18</div>
+        <div class="icons" onclick="openDialog(19)">19</div>
+        <div class="icons" onclick="openDialog(20)">20</div>
 
-        <div class="icons">21</div>
-        <div class="icons">22</div>
-        <div class="icons">23</div>
-        <div class="icons">24</div>
-        <div class="icons">25</div>
+        <div class="icons" onclick="openDialog(21)">21</div>
+        <div class="icons" onclick="openDialog(22)">22</div>
+        <div class="icons" onclick="openDialog(23)">23</div>
+        <div class="icons" onclick="openDialog(24)">24</div>
+        <div class="icons" onclick="openDialog(25)">25</div>
 
     </div>
+    <dialog id="dialogBox">
+        <p id="dialogText"></p>
+        <button onclick="closeDialog()">Close</button>
+    </dialog>
+
+    <script>
+        const dialog = document.getElementById("dialogBox");
+        const text = document.getElementById("dialogText");
+
+// narrative content
+        const contentMap = {
+  1: "No new messages.",
+  2: "Photo not found.",
+  3: "Files are empty.",
+  4: "Why did you open this?",
+  5: "Settings unavailable.",
+
+  6: "03:17 AM.",
+  7: "Access denied.",
+  8: "Location unknown.",
+  9: "Audio detected.",
+  10: "Someone tried to contact you.",
+
+  11: "You didn't sleep.",
+  12: "Receipt: Unknown.",
+  13: "Another user detected.",
+  14: "Missed call: YOU.",
+  15: "Searching...",
+
+  16: "Memory fragment loaded.",
+  17: "Signal incoming.",
+  18: "Data saved.",
+  19: "Deleted... or hidden?",
+  20: "Entry corrupted.",
+  21: "⚠ Something is wrong.",
+  22: "Pieces connecting.",
+  23: "Transmission failed.",
+  24: "It sees you.",
+  25: "This is not your phone."
+};
+
+    let openedCount = 0;
+
+    function openDialog(id) {
+        openedCount++;
+
+        let message = contentMap[id];
+
+  // dynamic narrative shift
+    if (openedCount > 10) {
+        message += " ...you shouldn't be here.";
+     }
+
+    if (openedCount > 20) {
+        message = "It's too late.";
+    }
+
+    text.innerText = message;
+    dialog.showModal();
+}
+    function closeDialog() {
+    dialog.close();
+}
+    </script>
 </body>
 </html>
