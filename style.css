@@ -6,7 +6,7 @@ body{
     height: 100vh;
     color:white;
 }
-
+/*base*/
 .icons-grid{
     display:grid;
     grid-template-columns: repeat(5, 80px);
@@ -35,7 +35,7 @@ body{
 }
 .icons:hover{
     transform:scale(1.1);
-    background-color:#6689bb;
+    background-color:#5c5c5c;
 }
 
 dialog{
@@ -59,4 +59,145 @@ button{
     border: none;
     color:white;
     cursor: pointer;
+}
+/*intro*/
+.egg-bg{
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        to bottom,
+        #0072d6,
+        #00f2fe
+    );
+}
+/*weather*/
+.weather-app{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.weather-box{
+    border-radius: 20px;
+    padding: 5px;
+    border: 1px solid rgb(103, 103, 103)
+}
+.weather-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+
+    background: linear-gradient(
+        to bottom,
+        #1c95ff,
+        #00f2fe,
+        #dee055
+    );
+
+    filter: blur(40px);
+    transform: scale(1.2);
+}
+/*photo*/
+.photos-app {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+}
+
+.photo {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #222;
+    border-radius: 8px;
+    background-position: center;
+}
+.photo:nth-child(1) { background: url('https://media.tenor.com/_zWYqfZdneIAAAAM/shocked-face-shocked-meme.gif') center/cover; }
+.photo:nth-child(2) { background: url('https://media.tenor.com/D_siaJ9VQ9gAAAAM/cat-confused.gif') center/cover; }
+.photo:nth-child(3) { background: url('https://tcmhuxevcnxpxpubnhkm.supabase.co/storage/v1/object/public/meme-images/memes/2026/03/01/46cbd1f8-ee64-4e2f-bb2d-96f3a2def3f7.webp') center/cover; }
+.photo:nth-child(4) { 
+    background: url('https://media.tenor.com/Vsa5nvYxHrYAAAAM/no.gif') center/cover; 
+    filter: brightness(1.0);
+}
+.photo:nth-child(5) { background: url('https://media.tenor.com/HmFcGkSu58QAAAAM/silly.gif') center/cover; }
+.photo:nth-child(6) { background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0X2JE59Tf1vpLQCBzc1gVJprf5T3eVe_5Bg&s') center/cover; }
+
+.back-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+
+.photo-info {
+    padding: 15px;
+    color: rgb(53, 53, 53);
+    font-size: 14px;
+}
+/*clock*/
+.clock-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+
+    background: linear-gradient(
+        to bottom,
+        #9d9494,
+        #1d1919,
+        #000000
+    );
+
+    filter: blur(40px);
+    transform: scale(1.2);
+}
+.clock-app{
+    color:aliceblue;
+}
+.divider{
+    height: 1px;
+    background: #ffffff;
+    opacity: 0.3;
+}
+.dividers{
+    height: 1px;
+    background: #000000;
+    opacity: 0.3;
+}
+/*notes*/
+.notes-bg{
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: #fffccb;
+}
+/*pop1*/
+.circle {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 0, 0, 0.8);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pop 1s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes pop {
+    from { transform: scale(0); opacity: 1; }
+    to { transform: scale(4); opacity: 0; }
+}
+
+.phone-bg{
+    background: #000000;
 }

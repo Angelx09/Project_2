@@ -29,8 +29,8 @@
                     <span>Notes</span>
                 </div>
 
-                <div class="icons" onclick="openDialog(6)">
-                    <img src="img/pop.png" alt="Pop app icon">
+                <div class="icons" onclick="triggerPulse()">
+                    <img src="img/pop.png">
                     <span>POP</span>
                 </div>
                 <div class="icons" onclick="openDialog(7)">
@@ -116,7 +116,7 @@
         </div>
 
     <dialog id="dialogBox">
-        <p id="dialogText"></p>
+        <div id="dialogText"></div>
         <button onclick="closeDialog()">Close</button>
     </dialog>
 
@@ -125,18 +125,83 @@
         const text = document.getElementById("dialogText");
 
 // narrative content
-        const contentMap = {
-  1: "Hello, is this your phone?",
-  2: "Notes",
-  3: "Files are empty.",
-  4: "Why did you open this?",
-  5: "Settings unavailable.",
+const contentMap = {
+    1: `
+        <div class="egg-bg"></div>
+        <h2>Welcome!</h2>
+        <p>Hello, is this your phone?</p>
+        `,
+    2: `
+        <div class="weather-bg"></div>
+        <div class="weather-app">
+            <h2>Weather</h2>
+            <div class="weather-box">
+                <h3>Today</h3>
+                <p>66°</p>
+            </div>
+            <div class="weather-box">
+                <h3>Tue</h3>
+                <p>73°</p>
+            </div>
+            <div class="weather-box">
+                <h3>Wed</h3>
+                <p>75°</p>
+            </div>
+        `,
+    3: `
+        <div class="photos-bg"><div>
+        <div class="photos-app">
+        <h2>Photos</h2>
 
-  6: "03:17 AM.",
+        <div class="photo-grid">
+            <div class="photo" onclick="viewPhoto('https://media.tenor.com/_zWYqfZdneIAAAAM/shocked-face-shocked-meme.gif')"></div>
+            <div class="photo" onclick="viewPhoto('https://media.tenor.com/D_siaJ9VQ9gAAAAM/cat-confused.gif')"></div>
+            <div class="photo" onclick="viewPhoto('https://tcmhuxevcnxpxpubnhkm.supabase.co/storage/v1/object/public/meme-images/memes/2026/03/01/46cbd1f8-ee64-4e2f-bb2d-96f3a2def3f7.webp')"></div>
+            <div class="photo" onclick="viewPhoto('https://media.tenor.com/Vsa5nvYxHrYAAAAM/no.gif')"></div>
+            <div class="photo" onclick="viewPhoto('https://media.tenor.com/HmFcGkSu58QAAAAM/silly.gif')"></div>
+            <div class="photo" onclick="viewPhoto('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0X2JE59Tf1vpLQCBzc1gVJprf5T3eVe_5Bg&s')"></div>
+        </div>
+    </div>
+        `,
+    4: `
+        <div class="clock-bg"></div>
+        <div class="clock-app">
+            <h1>World Clock</h1>
+            <div class="divider"></div>
+            <h2>New York-------00:00</h2>
+            <h2>Fu Zhou--------00:00</h2>
+        </div>
+        `,
+    5: `
+    <div class="notes-bg"></div>
+        <div class='notes-app'>
+            <h1>Notes</h1>
+            <p>5 Notes</p>
+            <div class="dividers"></div>
+            <h3>Previous 7 Days</h3>
+            <h3>To do</h3>
+            <h3>Grocery list for dinner</h3>
+            <h3>New Note</h3>
+            <h3>Passwords</h3>
+        </div>
+        `,
+
+  6: `
+    <div class="pulse-app" onclick="spawnCircle(event)">
+        <h2>Tap Anywhere</h2>
+    </div>`,
   7: "Access denied.",
-  8: "Location unknown.",
+  8: `
+    <div class="mail-bg"></div>
+        <div class="mail-app">
+            <h2>New Mails</h2>
+        </div>`,
   9: "Audio detected.",
-  10: "Someone tried to contact you.",
+  10: `
+    <div class="message-bg"></div>
+        <div class="message-app">
+            <h2>Messages</h2>
+        </div>`,
 
   11: "You didn't sleep.",
   12: "Receipt: Unknown.",
@@ -145,7 +210,14 @@
   15: "Searching...",
 
   16: "Memory fragment loaded.",
-  17: "Signal incoming.",
+  17: `
+    <div class="phone-bg"></div>
+        <div class="phone-app">
+            <h1>Calls</h1>
+            <div class="divider"></div>
+            <h2>Dad</h2>
+            <h2>Dad</h2>
+        </div>`,
   18: "Data saved.",
   19: "Deleted... or hidden?",
   20: "Entry corrupted.",
@@ -165,19 +237,52 @@
 
   // dynamic narrative shift
     if (openedCount > 10) {
-        message += " ...you shouldn't be here.";
+        message += " ...who are you.";
      }
 
     if (openedCount > 20) {
         message = "It's too late.";
     }
 
-    text.innerText = message;
+    text.innerHTML = message;
     dialog.showModal();
 }
     function closeDialog() {
     dialog.close();
 }
+function viewPhoto(src) {
+    text.innerHTML = `
+        <div class="photo-view">
+            <button class="back-btn" onclick="openDialog(3)">← Back</button>
+            <img src="${src}" class="full-photo"/>
+
+            <div class="photo-info">
+                <p>Taken at 03:17 AM</p>
+                <p>Location: Unknown</p>
+            </div>
+        </div>
+    `;
+}
+
+function triggerPulse() {
+    for (let i = 0; i < 15; i++) {
+        setTimeout(() => {
+            spawnCircleRandom();
+        }, i * 100);
+    }
+}
+function spawnCircleRandom() {
+    const circle = document.createElement("div");
+    circle.className = "circle";
+
+    circle.style.left = Math.random() * window.innerWidth + "px";
+    circle.style.top = Math.random() * window.innerHeight + "px";
+
+    document.body.appendChild(circle);
+
+    setTimeout(() => circle.remove(), 1000);
+}
+
     </script>
 </body>
 </html>
