@@ -44,7 +44,7 @@ dialog{
     border-radius: 12px;
     border: 1px solid #444;
     padding: 20px;
-    width: 300px;
+    width: 37%;
     text-align: center;
 }
 
@@ -295,13 +295,14 @@ button{
     filter: blur(40px);
     transform: scale(1.2);
 }
+/*mood*/
 .mood-bg {
     padding: 20px;
     background: linear-gradient(135deg, #87cefa, #f0e68c); /* sky-like blurry mix */
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 300px;
+    width: 50vh;
     border-radius: 20px;
 }
 
