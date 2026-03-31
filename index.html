@@ -360,7 +360,7 @@ const contentMap = {
     </div></div></div><button onclick="fakeClose()">Close</button>`,
   15: "Searching...",
 
-  16: "Memory fragment loaded.",
+  16: `<h2>Memory fragment loaded.</h2><button onclick="dialog.close()">Close</button>`,
   17: `
     <div class="phone-app">
         <h2>Recents</h2>
@@ -412,7 +412,7 @@ const contentMap = {
             <div class="Calendar-box">
                 <h2>04/02/2026</h2>
                 <p></p>
-            </div>`,
+            </div></div><button class="tiny-close" onclick="dialog.close()">x</button>`,
   20:`
     <div class="Calculator-bg"></div>
         <div class="Calculator-app">
@@ -433,7 +433,7 @@ const contentMap = {
             <div class="Calculator-box">
                 <h2>12:00pm</h2>
                 <p>x=?</p>
-            </div>`,
+            </div></div><button class="runaway">Close</button>`,
   21: `
     <div class="news-bg"></div>
         <div class='news-app'>
