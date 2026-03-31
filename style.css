@@ -44,22 +44,43 @@ dialog{
     border-radius: 12px;
     border: 1px solid #444;
     padding: 20px;
-    width: 260px;
+    width: 300px;
     text-align: center;
 }
 
 dialog::backdrop{
     background-color: rgb(0, 0, 0, 0.8);
 }
-
+dialog h3{
+    text-align:left;
+}
+section{
+    text-align: right;
+}
+article{
+    color:#7c7777;
+}
+nav{
+    text-align:right;
+    color:#7f7f7f;
+}
 button{
     margin-top: 15px;
     padding: 6px 14px;
-    background-color: #444;
+    background-color: #1d16ff;
     border: none;
     color:white;
     cursor: pointer;
 }
+.tiny-close {
+    font-size: 3px;
+    opacity: 0.2;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    background-color:rgb(251, 210, 161);
+}
+
 /*intro*/
 .egg-bg{
     position: absolute;
@@ -166,7 +187,7 @@ button{
 }
 .divider{
     height: 1px;
-    background: #ffffff;
+    background: #3b3b3b;
     opacity: 0.3;
 }
 .dividers{
@@ -180,6 +201,16 @@ button{
     inset: 0;
     z-index: -1;
     background: #fffccb;
+}
+.notes-box{
+    border-radius: 20px;
+    padding: 5px;
+    border: 1px solid rgb(103, 103, 103)
+}
+.lock-img{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }
 /*pop1*/
 .circle {
@@ -200,4 +231,380 @@ button{
 
 .phone-bg{
     background: #000000;
+}
+/*Messages*/
+.messages-app {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bubble {
+    max-width: 70%;
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+/* received */
+.bubble.left {
+    background: #e5e5ea;
+    align-self: flex-start;
+}
+
+/* sent */
+.bubble.right {
+    background: #007aff;
+    color: white;
+    align-self: flex-end;
+}
+
+.bubble.strange {
+    background: black;
+    color: red;
+}
+
+.typing {
+    font-style: italic;
+    color: gray;
+}
+
+/*health*/
+.health-app{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.health-box{
+    border-radius: 20px;
+    padding: 5px;
+    border: 1px solid rgb(255, 255, 255)
+}
+.health-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(
+        to bottom,
+        #ff8ba0,
+        #bc2fba,
+        #ff9494
+    );
+
+    filter: blur(40px);
+    transform: scale(1.2);
+}
+.mood-bg {
+    padding: 20px;
+    background: linear-gradient(135deg, #87cefa, #f0e68c); /* sky-like blurry mix */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    border-radius: 20px;
+}
+
+.mood-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.mood-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #c9c9c9; 
+}
+.mood-circle1 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ff6961; 
+}
+.mood-circle2 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #14ff33; 
+}
+.mood-circle3 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ffea29; 
+}
+
+.dividar {
+    width: 60%;
+    height: 2px;
+    background: #828282;
+}
+/*pop2*/
+.popup-msg {
+    position: fixed;
+    background: white;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    transform: translate(-50%, -50%);
+}
+/*Contact*/
+.contacts-app .contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #a3a3a3;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.contact.strange {
+    color: red;
+}
+.contact-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #000000,
+        #ffffff
+    );
+
+    filter: blur(40px);
+    transform: scale(1.2);
+}
+/*messages*/
+.message {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+}
+
+.message.right {
+    align-self: flex-end;
+    align-items: flex-end;
+}
+
+.time {
+    font-size: 11px;
+    color: gray;
+    margin-top: 2px;
+}
+
+/*pop3*/
+.flash {
+    position: fixed;
+    inset: 0;
+    background: white;
+    opacity: 0.9;
+    animation: flashAnim 0.3s ease-out;
+}
+
+@keyframes flashAnim {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+/*pop4*/
+.wave-effect {
+    animation: wave 2s ease-in-out;
+}
+
+@keyframes wave {
+    0% { transform: scale(1) skew(0deg); }
+    25% { transform: scale(1.02) skew(2deg); }
+    50% { transform: scale(0.98) skew(-2deg); }
+    75% { transform: scale(1.01) skew(1deg); }
+    100% { transform: scale(1) skew(0deg); }
+}
+/*news*/
+.news-bg{
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(
+        to bottom,
+        #e78484,
+        #fdff9a,
+        #ff892f
+    );
+
+    filter: blur(40px);
+    transform: scale(1.2);
+}
+.news-box{
+    border-radius: 20px;
+    padding: 5px;
+    border: 1px solid rgb(0, 0, 0)
+}
+/*Phone*/
+.phone-app .phone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #7f7f7f;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.phone {
+    color: red;
+}
+/*calendar*/
+.Calendar-app{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.Calendar-box{
+    border-radius: 20px;
+    padding: 5px;
+    border: 1px solid rgb(103, 103, 103)
+}
+.Calendar-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+
+    background: linear-gradient(
+        to bottom,
+        #d3da9e,
+        #d2fba5,
+        #dee055
+    );
+
+    filter: blur(40px);
+    transform: scale(1.2);
+}
+/*calculator*/
+.Calculator-app{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.Calculator-box{
+    border-radius: 20px;
+    padding: 5px;
+    border: 1px solid rgb(103, 103, 103)
+}
+.Calculator-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+
+    background: linear-gradient(
+        to bottom,
+        #114616,
+        #26ec41,
+        #0d6135
+    );
+
+    filter: blur(40px);
+    transform: scale(1.2);
+}
+/*pop5*/
+.creepy {
+    position: fixed;
+    inset: 0;
+    background: black;
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+/*Lock*/
+.alert-box {
+    position: fixed;
+    width: 200px;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    font-size: 14px;
+    z-index: 9999;
+}
+
+.alert-box button {
+    margin-top: 8px;
+    width: 100%;
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 6px;
+}
+.alert-box {
+    pointer-events: all;
+}
+
+body {
+    overflow: hidden;
+}
+
+/*wallet*/
+.wallet-bg{
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: #fffccb;
+}
+.wallet-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+
+    background: linear-gradient(
+        to bottom,
+        #022b50,
+        #12cfd9,
+        #020335
+    );
+
+    filter: blur(40px);
+    transform: scale(1.2);
+}
+.wallet-box{
+    border-radius: 20px;
+    padding: 5px;
+    border: 1px solid rgb(103, 103, 103)
+}
+.lock-img{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }
